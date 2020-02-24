@@ -1,7 +1,9 @@
 version: "3.7"
 services:
-  jupyter:
-    image: jupyter/datascience-notebook
+  jupyterlab:
+    user: root
+    build:
+      context: ./jupyterlab
     ports:
       - "8888:8888"
     volumes:
@@ -9,3 +11,4 @@ services:
     environment:
       TZ: "Asia/Tokyo"
       JUPYTER_ENABLE_LAB: "yes"
+      GRANT_SUDO: "yes"
